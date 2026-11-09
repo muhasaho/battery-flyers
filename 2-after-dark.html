@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Your Solar After Dark</title>
+<style>
+  @page { size: letter; margin: 0; }
+  :root { --sun: #ffc93c; --sun-deep: #f4a90f; --ink: #141414; --muted: #555; --paper: #ffffff; --line: #e8e2d4; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 8.5in; height: 10.98in; overflow: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { position: relative; width: 8.5in; height: 10.98in; overflow: hidden; display: flex; flex-direction: column; padding: .3in .3in .26in; }
+
+  .sun { position: relative; background: var(--sun); padding: .36in .45in .36in; height: 4.85in; overflow: hidden; border-radius: 18px; }
+  .sun::after { content: ""; position: absolute; right: -1.6in; top: -1.9in; width: 4.6in; height: 4.6in; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.45), rgba(255,255,255,0) 68%); }
+  .top { position: relative; z-index: 1; display: flex; justify-content: space-between; font-size: 9.5pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+  .top .stock::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); margin-right: 7px; vertical-align: 1px; }
+  .eyebrow { position: relative; z-index: 1; margin-top: .34in; font-size: 13pt; font-weight: 600; }
+  h1 { position: relative; z-index: 1; font-family: "Avenir Next Condensed", "Avenir Next", sans-serif; font-weight: 800; font-size: 72pt; line-height: .9; letter-spacing: -.012em; margin-top: 6px; }
+  .price { position: relative; z-index: 1; margin-top: .32in; display: flex; align-items: flex-end; gap: 14px; }
+  .price strong { font-family: "Avenir Next Condensed", "Avenir Next", sans-serif; font-weight: 800; font-size: 66pt; line-height: .82; letter-spacing: -.01em; }
+  .price span { font-size: 13pt; font-weight: 700; line-height: 1.25; padding-bottom: 4px; }
+  .price span em { font-style: normal; font-weight: 500; display: block; font-size: 10.5pt; }
+
+  .tower { position: absolute; right: .75in; top: 2.55in; width: 1.55in; z-index: 2; filter: drop-shadow(0 22px 20px rgba(0,0,0,.25)); }
+  .tower-cap { position: absolute; right: .37in; top: 5.85in; width: 2.3in; text-align: center; font-size: 9pt; color: var(--muted); z-index: 2; }
+
+  .facts { display: grid; grid-template-columns: 1fr 1.25fr 1fr; width: 5.25in; margin: .36in 0 0 .45in; border-top: 2px solid var(--ink); }
+  .fact { padding: 12px 14px 0 0; }
+  .fact + .fact { padding-left: 14px; border-left: 1px solid var(--line); }
+  .fact b { display: block; font-family: "Avenir Next Condensed", "Avenir Next", sans-serif; font-weight: 800; font-size: 23pt; line-height: 1; letter-spacing: -.01em; white-space: nowrap; }
+  .fact span { display: block; font-size: 9.5pt; color: var(--muted); line-height: 1.35; margin-top: 5px; }
+  .includes { width: 5.25in; margin: .24in 0 0 .45in; font-size: 11pt; line-height: 1.45; }
+  .includes b { background: linear-gradient(transparent 58%, rgba(255,201,60,.75) 58%); }
+
+  .checks { list-style: none; display: flex; gap: 10px; margin: .24in .45in 0; flex-wrap: wrap; }
+  .checks li { font-size: 10.5pt; font-weight: 700; background: #fff4d1; border-radius: 999px; padding: 6px 14px; }
+  .checks li::before { content: "✓"; margin-right: 7px; color: #b07a00; }
+  .more { margin: .14in .45in 0; font-size: 10pt; color: var(--muted); }
+  .cta { margin-top: auto; background: var(--ink); color: #fff; display: flex; align-items: center; gap: .3in; padding: .26in .45in; border-radius: 18px; }
+  .cta .say { flex: 1; }
+  .cta h2 { font-size: 22pt; font-weight: 800; letter-spacing: -.01em; line-height: 1.05; }
+  .cta h2 em { font-style: normal; color: var(--sun); }
+  .cta p { font-size: 10.5pt; color: #c9c9c9; margin-top: 4px; }
+  .contact { margin-top: 9px; font-size: 12.5pt; font-weight: 700; line-height: 1.4; }
+  .contact span { font-weight: 500; color: #c9c9c9; }
+  .qr-wrap { text-align: center; font-size: 8.5pt; color: #c9c9c9; font-weight: 600; }
+  .qr { width: 1.05in; height: 1.05in; background: #fff; color: #777; border-radius: 8px; display: grid; place-items: center; font-size: 8pt; margin-bottom: 5px; }
+  .fine { color: #5f5f5f; font-size: 7pt; line-height: 1.4; padding: .12in .1in 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="sun">
+    <div class="top"><div>[Business name]</div><div class="stock">In stock now</div></div>
+    <div class="eyebrow">California solar owners on NEM 3.0:</div>
+    <h1>Your solar.<br>After dark.</h1>
+    <div class="price"><strong>$8,500</strong><span>fully installed<em>battery, inverter, permits, install</em></span></div>
+  </div>
+
+  <img class="tower" src="assets/qhome-core-tower-cut.png" alt="Qcells Q.HOME CORE battery and inverter">
+  <div class="tower-cap"><b>Qcells Q.HOME CORE</b><br>10 kWh battery + inverter</div>
+
+  <div class="facts">
+    <div class="fact"><b>10 kWh</b><span>battery, 9 kWh usable for the evening peak</span></div>
+    <div class="fact"><b>$141 → $41</b><span>one NEM 3.0 home’s monthly bill*</span></div>
+    <div class="fact"><b>In stock</b><span>local units, ready to install</span></div>
+  </div>
+  <div class="includes">Under NEM 3.0, extra midday solar earns low export credits. <b>A battery keeps it for the evening</b>, when grid power costs the most.</div>
+  <ul class="checks"><li>Battery + inverter</li><li>Permits</li><li>Professional install</li><li>12-year warranty</li></ul>
+  <div class="more">More capacity (up to 20 kWh) or optional outage backup? Ask for pricing.</div>
+
+  <div class="cta">
+    <div class="say">
+      <h2>Book a <em>free</em> bill review.</h2>
+      <p>Plus a free compatibility check for your existing solar.</p>
+      <div class="contact">[Name] · [Phone]<br><span>[Email] · [Service area] · CSLB Lic. #[_______]</span></div>
+    </div>
+    <div class="qr-wrap"><div class="qr">QR code<br>placeholder</div>Scan to text us</div>
+  </div>
+  <div class="fine">*Example based on an actual California homeowner under NEM 3.0 (source: Qcells). Results vary with usage, system size and utility rates; peak hours vary by utility and rate plan. Q.HOME CORE supports AC- or DC-coupled solar; compatibility confirmed during the review. Extra capacity and optional backup equipment (Q.HOME HUB) priced separately. 12-year standard warranty per Qcells Q.HOME CORE datasheet (2024). Product image: Qcells. Limited units in stock.</div>
+</div>
+</body>
+</html>

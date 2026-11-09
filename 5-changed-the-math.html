@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NEM 3.0 Changed the Math</title>
+<style>
+  @page { size: letter; margin: 0; }
+  :root {
+    --forest: #123b2f;
+    --forest-2: #1d5544;
+    --sand: #f1e9db;
+    --sand-2: #e6dac4;
+    --amber: #e39b2d;
+    --ink: #172520;
+    --muted: #5d6a64;
+    --paper: #fffdf9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 8.5in; height: 10.98in; overflow: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 8.5in; height: 10.98in; overflow: hidden; display: flex; flex-direction: column; padding: .3in .3in .24in; }
+
+  .hero { display: grid; grid-template-columns: 2.3in 1fr; min-height: 6.05in; margin-bottom: .14in; }
+  .shot { background: linear-gradient(170deg, var(--sand) 0%, var(--sand-2) 100%); position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 0 0 .3in; border-radius: 16px; }
+  .shot .brand { position: absolute; top: .3in; left: .3in; font-size: 9.5pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--forest); }
+  .shot img { width: 1.6in; height: auto; filter: drop-shadow(0 18px 18px rgba(40,30,10,.22)); }
+  .shot .floor { width: 2.1in; height: 10px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(60,45,20,.28), rgba(60,45,20,0) 70%); margin-top: -4px; }
+  .shot .cap { margin-top: .16in; text-align: center; font-size: 9.5pt; color: var(--forest); line-height: 1.35; }
+  .shot .cap b { display: block; font-size: 12pt; }
+
+  .copy { padding: .14in .2in 0 .4in; display: flex; flex-direction: column; }
+  .stock { align-self: flex-end; font-size: 9.5pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--forest-2); }
+  .stock::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--amber); margin-right: 7px; vertical-align: 1px; }
+  .eyebrow { margin-top: .32in; font-size: 11.5pt; font-weight: 600; color: var(--muted); }
+  h1 { font-family: Charter, "Iowan Old Style", Georgia, serif; font-weight: 700; font-size: 38pt; line-height: 1.02; letter-spacing: -.01em; margin-top: 8px; color: var(--ink); }
+  h1 span { display: block; color: var(--forest-2); font-style: italic; font-weight: 700; }
+
+  ol { list-style: none; margin-top: .26in; display: grid; gap: .15in; }
+  li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; }
+  li i { font-style: normal; width: 30px; height: 30px; border-radius: 50%; background: var(--forest); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 12pt; }
+  li b { display: block; font-size: 13.5pt; }
+  li span { font-size: 10.5pt; color: var(--muted); line-height: 1.4; }
+  .proof { display: flex; align-items: baseline; gap: 10px; margin-top: 4px; }
+  .proof s { text-decoration: none; font-family: Charter, Georgia, serif; font-weight: 700; font-size: 26pt; color: #74827b; }
+  .proof em { font-style: normal; font-size: 18pt; color: var(--muted); }
+  .proof strong { font-family: Charter, Georgia, serif; font-weight: 700; font-size: 34pt; color: var(--forest-2); line-height: 1; }
+  .proof small { font-size: 11pt; color: var(--muted); font-weight: 600; }
+
+  .offer { background: var(--forest); color: #fff; display: grid; grid-template-columns: auto 1fr; gap: .4in; align-items: center; padding: .28in .35in .28in .35in; border-radius: 16px; }
+  .offer .lab { font-size: 9.5pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #a9c8bc; }
+  .offer .price { font-family: Charter, Georgia, serif; font-size: 58pt; font-weight: 700; line-height: 1; letter-spacing: -.01em; }
+  .offer .price small { font-family: "Avenir Next", sans-serif; font-size: 12pt; font-weight: 600; margin-left: 6px; color: #d7e7e0; }
+  .offer .inc { font-size: 11pt; line-height: 1.45; color: #e3efe9; }
+  .offer .inc b { color: #fff; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .extra { margin-top: 9px; font-size: 9.5pt; color: #bcd6cb; }
+  .chips span { font-size: 9pt; font-weight: 600; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 3px 10px; color: #fff; }
+
+  .cta { display: flex; gap: .3in; align-items: center; padding: .26in .25in 0 .35in; }
+  .cta .say { flex: 1; }
+  .cta h2 { font-family: Charter, Georgia, serif; font-size: 25pt; font-weight: 700; line-height: 1.05; }
+  .cta p { font-size: 10.5pt; color: var(--muted); margin-top: 5px; }
+  .contact { margin-top: 10px; font-size: 12.5pt; font-weight: 700; line-height: 1.4; }
+  .contact span { font-weight: 500; color: var(--muted); }
+  .qr-wrap { text-align: center; font-size: 8.5pt; color: var(--muted); font-weight: 600; }
+  .qr { width: 1.1in; height: 1.1in; border: 2px dashed #a3aca7; border-radius: 10px; display: grid; place-items: center; font-size: 8pt; margin-bottom: 5px; }
+  .fine { margin-top: auto; padding: 0 .25in .06in .35in; font-size: 7pt; line-height: 1.4; color: #78827d; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="shot">
+      <div class="brand">[Business name]</div>
+      <img src="assets/qhome-core-tower-cut.png" alt="Qcells Q.HOME CORE battery and inverter">
+      <div class="floor"></div>
+      <div class="cap"><b>Qcells Q.HOME CORE</b>10 kWh battery + inverter</div>
+    </div>
+    <div class="copy">
+      <div class="stock">In stock now</div>
+      <div class="eyebrow">For California homes that already have solar</div>
+      <h1>NEM 3.0 changed the math. <span>A battery fixes it.</span></h1>
+      <ol>
+        <li><i>1</i><div><b>Store it.</b><span>Midday solar charges your battery, not the grid’s low export credits.</span></div></li>
+        <li><i>2</i><div><b>Use it.</b><span>Power your home through the 4–9 pm peak, when rates are highest.</span></div></li>
+        <li><i>3</i><div><b>Pay less.</b><span>One NEM 3.0 home’s monthly bill:*</span><div class="proof"><s>$141</s><em>→</em><strong>$41</strong><small>/mo</small></div></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="offer">
+    <div>
+      <div class="lab">Fully installed</div>
+      <div class="price">$8,500</div>
+    </div>
+    <div>
+      <div class="inc"><b>Includes the Q.HOME CORE battery + inverter, permitting and professional installation.</b></div>
+      <div class="chips"><span>10 kWh · 9 kWh usable</span><span>12-yr warranty</span><span>Indoor/outdoor</span></div>
+      <div class="extra">More capacity (to 20 kWh) or optional backup? Ask for pricing.</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="say">
+      <h2>Book a free bill review.</h2>
+      <p>Plus a free compatibility check for your existing solar. No pressure.</p>
+      <div class="contact">[Name] · [Phone]<br><span>[Email] · Serving [service area] · CSLB Lic. #[_______]</span></div>
+    </div>
+    <div class="qr-wrap"><div class="qr">QR code<br>placeholder</div>Scan to text us</div>
+  </div>
+
+  <div class="fine">*Example based on an actual California homeowner under NEM 3.0 (source: Qcells). Results vary with usage, system size and utility rates; peak hours vary by utility and rate plan. Q.HOME CORE supports AC- or DC-coupled solar; compatibility with your system is confirmed during the review. Extra battery capacity and optional backup equipment priced separately. 12-year standard warranty per Qcells Q.HOME CORE datasheet (2024). Product image: Qcells. Limited units in stock.</div>
+</div>
+</body>
+</html>
