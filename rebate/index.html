@@ -32,7 +32,16 @@
   .p1 h1 { text-align: center; font-weight: 800; font-size: 39pt; line-height: 1.04; letter-spacing: -.012em; color: var(--navy); text-transform: uppercase; }
   .p1 h1 em { font-style: normal; color: var(--blue); }
   .p1 .sub { text-align: center; font-size: 16.5pt; font-weight: 500; margin: .1in 0 .2in; color: var(--ink); }
-  .hero { height: 3.42in; overflow: hidden; }
+  .hero { height: 2.9in; overflow: hidden; }
+  .math { display: flex; align-items: center; justify-content: center; gap: .16in; margin: .14in 0 .18in; }
+  .math .n { text-align: center; }
+  .math .n b { display: block; font-size: 27pt; font-weight: 800; line-height: 1; color: var(--navy); letter-spacing: -.01em; }
+  .math .n span { display: block; font-size: 9.5pt; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: 5px; }
+  .math .n.rebate b { color: var(--blue); }
+  .math .op { font-size: 24pt; font-weight: 700; color: var(--muted); padding-bottom: 18px; }
+  .math .n.you { background: linear-gradient(160deg, #5cc06a, #3a9a4c); border-radius: 14px; padding: .1in .24in .09in; }
+  .math .n.you b { color: #fff; font-size: 33pt; }
+  .math .n.you span { color: #eaf7ec; }
   .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; display: block; }
 
   .benefits { display: grid; grid-template-columns: 1fr 1fr 1fr; margin: .24in 0 .2in; }
@@ -81,6 +90,9 @@
   .promo h2 { text-align: center; white-space: nowrap; font-size: 25pt; font-weight: 500; letter-spacing: -.005em; line-height: 1.05; }
   .promo h2 b { font-weight: 700; }
   .promo h2 strong { font-weight: 700; font-size: 33pt; color: #f7c244; }
+  .promo h2 strong small { font-size: .55em; vertical-align: .55em; margin-left: 1px; }
+  .promo .netline { text-align: center; font-size: 12.5pt; font-weight: 500; color: #d3e2f0; margin-top: .07in; }
+  .promo .netline b { color: #f7c244; font-weight: 700; }
   .promo ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .14in .3in; margin-top: .16in; }
   .promo li { display: grid; grid-template-columns: 24px 1fr; gap: 9px; align-items: start; }
   .promo li b { display: block; font-size: 12pt; font-weight: 600; line-height: 1.15; }
@@ -88,10 +100,10 @@
 
   .cards { display: grid; grid-template-columns: 1fr 1fr; gap: .22in; margin: .34in .55in 0; }
   .card { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
-  .card .ph { height: 2.55in; overflow: hidden; }
+  .card .ph { height: 2.32in; overflow: hidden; }
   .card .ph img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; display: block; }
   .card .cap { text-align: center; font-size: 11pt; font-weight: 600; padding: .09in .1in .1in; border-top: 1px solid var(--line); }
-  .lineup { height: 2.55in; display: flex; flex-direction: column; padding: .1in .14in .06in; }
+  .lineup { height: 2.32in; display: flex; flex-direction: column; padding: .1in .14in .06in; }
   .lineup .model { background: #eef1f3; border-radius: 4px; font-size: 5.7pt; font-weight: 600; color: #3aa79f; padding: 4px 6px; letter-spacing: 0; white-space: nowrap; }
   .lineup .model b { color: #2a8f88; margin-right: 5px; }
   .lineup .imgs { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: .08in .05in .02in; }
@@ -116,7 +128,13 @@
 <!-- ======================= PAGE 1 ======================= -->
 <section class="page p1">
   <h1>Get a <em>$7,500 rebate</em> on<br>home battery storage!</h1>
-  <p class="sub">Keep Your Lights On During Power Outages &amp; Save Money</p>
+  <div class="math">
+    <div class="n"><b>$9,500</b><span>Full system, installed</span></div>
+    <div class="op">−</div>
+    <div class="n rebate"><b>$7,500</b><span>PG&amp;E rebate</span></div>
+    <div class="op">=</div>
+    <div class="n you"><b>$2,000</b><span>Your out-of-pocket cost</span></div>
+  </div>
   <div class="bar"></div>
   <div class="hero"><img src="assets/garage-wide.jpg" alt="Qcells home battery installed on a garage wall"></div>
 
@@ -165,7 +183,7 @@
     </div>
   </div>
 
-  <p class="fine">Rebate is paid by PG&amp;E, subject to program approval and available funding. Other PG&amp;E requirements apply, including a Time-of-Use rate plan, demand-response program enrollment and Permission to Operate. <b>pge.com/en/save-energy-and-money/rebates-and-incentives/permanent-battery-storage-rebate.html</b></p>
+  <p class="fine">$2,000 cost = $9,500 system price minus the $7,500 PG&amp;E rebate, for eligible customers. Rebate is paid by PG&amp;E, subject to program approval and available funding. Other PG&amp;E requirements apply, including a Time-of-Use rate plan, demand-response program enrollment and Permission to Operate. <b>pge.com/en/save-energy-and-money/rebates-and-incentives/permanent-battery-storage-rebate.html</b></p>
   <div class="bar bottom"></div>
 </section>
 
@@ -184,7 +202,8 @@
   <div class="promo-zone">
     <div class="promo">
       <div class="tab">LIMITED-TIME TURNKEY PROMOTION</div>
-      <h2><b>FULL SYSTEM</b> STARTING AT <strong>$9,500</strong></h2>
+      <h2><b>FULL SYSTEM</b> FOR JUST <strong>$2,000<small>*</small></strong></h2>
+      <p class="netline">$9,500 turnkey price − $7,500 PG&amp;E rebate = <b>$2,000 out of pocket</b></p>
       <ul>
         <li><svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5cc3f0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7 12.5 3.2 3.2L17.5 8"/></svg><div><b>Equipment Included:</b><span>Q.HOME CORE integrated battery &amp; inverter</span></div></li>
         <li><svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5cc3f0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m7 12.5 3.2 3.2L17.5 8"/></svg><div><b>Permitting Handled:</b><span>City/county permits &amp; utility interconnection</span></div></li>
@@ -223,16 +242,16 @@
     <div>
       <svg class="i" width="38" height="38" viewBox="0 0 40 40" fill="none" stroke="#1ba0b8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="9" r="3.6"/><path d="M20 1.5v1.6M12.8 4.6l1.1 1.1M27.2 4.6l-1.1 1.1M10 9h1.6M28.4 9H30"/><path d="M8 17h24l4 16H4z"/><path d="M6 25h28M16 17l-1.6 16M24 17l1.6 16M20 33v4M14 37h12"/></svg>
       <h3>Complete Solar Ecosystem</h3>
-      <p>Q.VOLT, Q.SAVE &amp; Q.HOME HUB pair seamlessly with Qcells’ #1 residential solar panels.*</p>
+      <p>Q.VOLT, Q.SAVE &amp; Q.HOME HUB pair seamlessly with Qcells’ #1 residential solar panels.**</p>
     </div>
   </div>
 
   <div class="footband">
     <div class="row">
-      <h2>Lock In Your $9,500<br>Turnkey System Today<span>— Limited promotional spots available.</span></h2>
+      <h2>Get Your Full System for $2,000<br>After Your PG&amp;E Rebate<span>— Limited promotional spots available.</span></h2>
       <div class="callbtn">CALL OR TEXT: 209-739-7065</div>
     </div>
-    <p class="fine">*Wood Mackenzie U.S. PV Leaderboard, residential segment, per Qcells. Specifications from the Qcells Q.HOME CORE datasheet (2024). Product images: Qcells. Optional equipment and additional battery capacity priced separately.</p>
+    <p class="fine">*$2,000 out-of-pocket cost is the $9,500 turnkey price minus the $7,500 PG&amp;E Permanent Battery Storage Rebate, for eligible PG&amp;E customers; rebate subject to PG&amp;E approval and available funding. **Wood Mackenzie U.S. PV Leaderboard, residential segment, per Qcells. Specifications from the Qcells Q.HOME CORE datasheet (2024). Product images: Qcells. Optional equipment and additional battery capacity priced separately.</p>
   </div>
 </section>
 
