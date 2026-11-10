@@ -25,6 +25,13 @@
   .links { display: flex; gap: 10px; margin: 0 2px; }
   .links a { font-size: 14px; font-weight: 700; color: var(--accent); text-decoration: none; border: 1.5px solid var(--accent); border-radius: 999px; padding: 6px 14px; }
   .links a.primary { background: var(--accent); color: #fff; }
+  .feature { background: var(--card); border-radius: 14px; padding: 18px; margin: 28px auto 8px; box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 8px 24px rgba(30,40,30,.07); }
+  .feature .pages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .feature .pages a { display: block; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .feature .pages img { display: block; width: 100%; height: auto; }
+  .feature h2 { margin-top: 0; font-size: 22px; }
+  .feature .why { flex: none; }
+  h2.section { font-size: 20px; margin: 36px 0 0; }
   footer { padding-bottom: 40px; color: var(--muted); font-size: 13px; }
   footer h3 { color: var(--ink); font-size: 15px; margin: 24px 0 6px; }
   footer ul { margin: 0; padding-left: 18px; }
@@ -32,10 +39,23 @@
 </head>
 <body>
 <header>
-  <div class="tag">Qcells Q.HOME CORE · $8,500 installed</div>
-  <h1>Five flyers for California solar owners on NEM 3.0</h1>
-  <p>Ranked best first. Each is one US Letter page. Tap a flyer to see it full size, or download the PDF to print.</p>
+  <div class="tag">Qcells Q.HOME CORE · PG&amp;E $7,500 battery rebate</div>
+  <h1>Home battery flyers for California</h1>
+  <p>The current two-page flyer is first. Tap a page to see it full size, or download the PDF to print.</p>
 </header>
+<main>
+  <section class="feature">
+    <div class="rank"><b>Current</b><span>2 pages · US Letter · print-ready at 300 dpi</span></div>
+    <h2>Get a $7,500 rebate on home battery storage</h2>
+    <p class="why">Page 1 covers the PG&amp;E rebate, who qualifies, and a QR code to PG&amp;E’s program page. Page 2 covers the $9,500 turnkey Q.HOME CORE promotion.</p>
+    <div class="pages">
+      <a href="rebate/qcells-rebate-flyer-page1.png"><img src="rebate/page1-preview.jpg" width="1100" height="1424" alt="Flyer page 1: Get a $7,500 rebate on home battery storage"></a>
+      <a href="rebate/qcells-rebate-flyer-page2.png"><img src="rebate/page2-preview.jpg" width="1100" height="1424" alt="Flyer page 2: Full system starting at $9,500"></a>
+    </div>
+    <div class="links" style="margin-top:14px"><a class="primary" href="rebate/qcells-rebate-flyer.pdf">PDF (both pages)</a><a href="rebate/qcells-rebate-flyer-page1.png">Page 1 image</a><a href="rebate/qcells-rebate-flyer-page2.png">Page 2 image</a></div>
+  </section>
+  <h2 class="section">Earlier designs</h2>
+</main>
 <main class="grid">
   <article>
     <div class="rank"><b>#1</b></div>
